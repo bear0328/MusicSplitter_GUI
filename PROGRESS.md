@@ -43,14 +43,33 @@ MusicSplitter_GUI/
 - [x] `.gitignore` 增加 `*.wav`，避免后续音频文件误提交。
 - [x] 更新 `INSTALL.md` 中示例路径为通用占位符。
 
+### 2026-08-08 GitHub 闭源仓库 + 模型 Release Asset
+
+- [x] 创建 GitHub 私有仓库：`https://github.com/bear0328/MusicSplitter_GUI`
+- [x] 配置 `http.proxy` / `https.proxy` / `http.version` / `http.postBuffer` 以通过本地代理 push。
+- [x] 用 orphan branch 重新整理初始提交，避免历史里残留已删除的 16 MB 示例音频。
+- [x] 推送代码到 GitHub 私有仓库。
+- [x] 创建 Release `v0.1.0` 并上传 3 个模型 `.th` 文件作为 Asset。
+- [x] 新增 `models/download_models.py`，支持从 Release 自动下载模型（读代理环境变量）。
+- [x] 更新 `models/README.md` 说明模型获取方式。
+
 ## 当前状态
 
 | 项 | 状态 |
 |---|---|
-| 代码路径 | 已修复，git 干净 |
-| 模型文件 | 已就位（3 个 `.th`） |
-| `.venv-demucs` | **未安装**，首次使用需运行安装脚本 |
-| 启动器 | 已适配扁平结构，可直接双击 |
+| 代码 | 已推送到 GitHub private repo |
+| 模型文件 | 作为 Release Asset 上传，不在 git 里 |
+| `.venv-demucs` | **未安装** |
+
+## GitHub 地址
+
+- 仓库：`https://github.com/bear0328/MusicSplitter_GUI`（私有）
+- Release：`https://github.com/bear0328/MusicSplitter_GUI/releases/tag/v0.1.0`
+- 模型下载：
+  ```bash
+  cd /Users/bear/Documents/AI_Project/MusicSplitter_GUI
+  python3 models/download_models.py
+  ```
 
 ## 待办（后续可选）
 
