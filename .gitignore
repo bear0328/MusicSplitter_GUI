@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv-demucs/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project outputs
+drum_pieces/
+separated/
+output/
+htdemucs/
+*.log
+
+# Audio samples/inputs are not tracked in the repo (large binaries)
+*.wav
+
+# Bundled demucs checkpoints (large binaries; see models/README.md for how to obtain)
+models/checkpoints/*.th
+
+# Keep the directory placeholder
+!models/checkpoints/.gitkeep
