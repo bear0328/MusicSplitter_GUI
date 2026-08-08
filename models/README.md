@@ -18,7 +18,17 @@
 
 如果 `models/checkpoints/` 是空的,首次跑 demucs 会试图从 HuggingFace Hub 拉 `adefossez/HTDemucs`(safetensors 格式,走 `hf_xet`)。在 HF Hub CDN 不通的环境可能会卡死。手动补三种姿势:
 
-### 1. 从 Meta 官方 AWS 拉(推荐,稳定)
+### 1. 从本仓库 GitHub Release 下载(推荐,与仓库闭源同步)
+
+仓库已把三个模型文件作为 [Release v0.1.0](https://github.com/bear0328/MusicSplitter_GUI/releases/tag/v0.1.0) 的 Asset,运行下载脚本即可:
+
+```bash
+python3 models/download_models.py
+```
+
+脚本会读取 `HTTP_PROXY`/`HTTPS_PROXY` 环境变量;如果系统代理已开,通常能直接走。
+
+### 2. 从 Meta 官方 AWS 拉
 
 ```bash
 mkdir -p models/checkpoints
@@ -30,15 +40,15 @@ curl -L --progress-bar -O https://dl.fbaipublicfiles.com/demucs/hybrid_transform
 
 URL 列表参见 demucs 源码 `demucs/remote/files.txt`(也打进 wheel 了)。
 
-### 2. 复用机器已有的 torch hub cache
+### 3. 复用机器已有的 torch hub cache
 
 ```bash
 ln ~/.cache/torch/hub/checkpoints/*.th models/checkpoints/
 ```
 
-(我们这次就是这么做的 —— 同一 inode,本地一份磁盘占用 ≈ 0。)
+(同一 inode,本地一份磁盘占用 ≈ 0。)
 
-### 3. 跳过这步,全靠网络
+### 4. 跳过这步,全靠网络
 
 删掉这个目录,脚本会报警告但继续 —— 首次跑 demucs 自己拉,**先设置 `HF_TOKEN`** 否则 HuggingFace Hub 经常 403。
 
