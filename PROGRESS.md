@@ -60,6 +60,7 @@ MusicSplitter_GUI/
 - [x] 修复 `MusicSplitter_Install.command` Python 检测逻辑:PATH 上的旧版 python3(如 3.9)不再短路常见路径扫描,版本不合格会继续找 `/Library/Frameworks` / Homebrew 下的合格版本。
 - [x] `drum_bands.py --threshold` 改用 `non_negative_float` 校验,拒绝 nan/inf/负数(与 `--offset` 一致;GUI 侧原本已校验,CLI 直跑补齐)。
 - [x] README 中英文切换:`README.md` 默认英文,顶部链接切到 `README_CN.md`(中文),两文件互相链接。
+- [x] 沉淀技能 `~/.kimi-code/skills/musicsplitter-ops/SKILL.md`:启动器约定、模型分发、代理 push 绕过、README 双语、验证套路、已修坑清单。
 - [x] 仓库转为 **public**(Release Asset 模型随之公开可下,demucs 权重本身公开分发,无敏感内容)。
 - [x] 回归验证:`bash -n` ×2、`py_compile` ×3 通过;Python 检测新逻辑用假 python3(报 3.9)模拟验证可正确拒绝并落入 fallback。
 
