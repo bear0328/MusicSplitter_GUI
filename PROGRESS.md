@@ -59,20 +59,21 @@ MusicSplitter_GUI/
 - [x] 修复 `MusicSplitter_GUI.bat` 末尾多余 `pause`:导致双击后 CMD 窗口不关闭,与自身注释及 `INSTALL.md` 的"CMD 闪一下关掉"矛盾。已删除(GBK + CRLF 保持)。
 - [x] 修复 `MusicSplitter_Install.command` Python 检测逻辑:PATH 上的旧版 python3(如 3.9)不再短路常见路径扫描,版本不合格会继续找 `/Library/Frameworks` / Homebrew 下的合格版本。
 - [x] `drum_bands.py --threshold` 改用 `non_negative_float` 校验,拒绝 nan/inf/负数(与 `--offset` 一致;GUI 侧原本已校验,CLI 直跑补齐)。
-- [x] 新增 `README.md`(中文)/ `README_EN.md`(英文),互相链接。
+- [x] 新增 `README.md` 中英文对照(单文件双语;原 `README_EN.md` 已合并删除)。
+- [x] 仓库转为 **public**(Release Asset 模型随之公开可下,demucs 权重本身公开分发,无敏感内容)。
 - [x] 回归验证:`bash -n` ×2、`py_compile` ×3 通过;Python 检测新逻辑用假 python3(报 3.9)模拟验证可正确拒绝并落入 fallback。
 
 ## 当前状态
 
 | 项 | 状态 |
 |---|---|
-| 代码 | 已推送到 GitHub private repo |
+| 代码 | 已推送到 GitHub **public** repo(2026-10-18 转公开) |
 | 模型文件 | 作为 Release Asset 上传，不在 git 里 |
 | `.venv-demucs` | **未安装** |
 
 ## GitHub 地址
 
-- 仓库：`https://github.com/bear0328/MusicSplitter_GUI`（私有）
+- 仓库：`https://github.com/bear0328/MusicSplitter_GUI`（公开，2026-10-18 由私有转公开）
 - Release：`https://github.com/bear0328/MusicSplitter_GUI/releases/tag/v0.1.0`
 - 模型下载：
   ```bash
