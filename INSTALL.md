@@ -1,4 +1,4 @@
-# MusicGame_Demo — 安装与使用指南
+# MusicSplitter_GUI — 安装与使用指南
 
 只讲一件事:在一台新机器上,把拆轨 + 分析环境装起来,然后跑起来。
 
@@ -39,7 +39,7 @@
 #### 2.2.1 macOS / Linux
 
 ```bash
-cd /Users/bear/Documents/MusicGame_Demo
+cd /Users/bear/Documents/AI_Project/MusicSplitter_GUI
 bash MusicSplitter_Install.command
 # 装完会问要不要启动 GUI,跳过即直接退出
 ```
@@ -54,7 +54,7 @@ python3 gui.py
 #### 2.2.2 Windows(PowerShell)
 
 ```powershell
-cd $HOME\Documents\MusicGame_Demo
+cd $HOME\Documents\MusicSplitter_GUI   # 换成你的实际项目根路径
 .\MusicSplitter_Install.bat
 ```
 

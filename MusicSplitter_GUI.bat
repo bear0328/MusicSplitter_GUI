@@ -21,5 +21,3 @@ call "%ROOT%.venv-demucs\Scripts\activate.bat"
 
 rem start "" 让 CMD 立刻关掉,pythonw 自己起 GUI(无 console 窗口)
 start "" pythonw "%GUI_DIR%gui.py"
-
-pause

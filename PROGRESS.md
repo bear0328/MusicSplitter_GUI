@@ -53,6 +53,15 @@ MusicSplitter_GUI/
 - [x] 新增 `models/download_models.py`，支持从 Release 自动下载模型（读代理环境变量）。
 - [x] 更新 `models/README.md` 说明模型获取方式。
 
+### 2026-10-18 复查修复
+
+- [x] 修复 `INSTALL.md` 残留旧项目名 `MusicGame_Demo`(标题 + §2.2.1/§2.2.2 的 `cd` 示例路径),改为 `MusicSplitter_GUI` 真实路径。
+- [x] 修复 `MusicSplitter_GUI.bat` 末尾多余 `pause`:导致双击后 CMD 窗口不关闭,与自身注释及 `INSTALL.md` 的"CMD 闪一下关掉"矛盾。已删除(GBK + CRLF 保持)。
+- [x] 修复 `MusicSplitter_Install.command` Python 检测逻辑:PATH 上的旧版 python3(如 3.9)不再短路常见路径扫描,版本不合格会继续找 `/Library/Frameworks` / Homebrew 下的合格版本。
+- [x] `drum_bands.py --threshold` 改用 `non_negative_float` 校验,拒绝 nan/inf/负数(与 `--offset` 一致;GUI 侧原本已校验,CLI 直跑补齐)。
+- [x] 新增 `README.md`(中文)/ `README_EN.md`(英文),互相链接。
+- [x] 回归验证:`bash -n` ×2、`py_compile` ×3 通过;Python 检测新逻辑用假 python3(报 3.9)模拟验证可正确拒绝并落入 fallback。
+
 ## 当前状态
 
 | 项 | 状态 |

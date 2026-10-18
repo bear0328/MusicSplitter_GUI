@@ -58,12 +58,18 @@ echo "==> [2/6] 找 Python 3.10+"
 
 PYTHON_BIN=""
 
-# 1. PATH 里 python3(主流 PATH 一般在这)
+# 1. PATH 里 python3(主流 PATH 一般在这)。必须版本合格才接受,
+#    否则 PATH 上的 3.9 会短路后面的常见路径扫描(那里可能装着合格的 3.11)
 if command -v python3 >/dev/null 2>&1; then
     candidate=$(command -v python3)
     # Apple 系统自带的 /usr/bin/python3 是 3.9.6,不够用,跳过
     if [[ "$candidate" != "/usr/bin/python3" ]]; then
-        PYTHON_BIN="$candidate"
+        cand_minor=$("$candidate" -c 'import sys; print(sys.version_info.minor)' 2>/dev/null)
+        if [[ -n "$cand_minor" ]] && [[ "$cand_minor" -ge "$MIN_MINOR" ]]; then
+            PYTHON_BIN="$candidate"
+        else
+            echo "    PATH 上的 python3 ($candidate) 版本不足 3.$MIN_MINOR,继续扫常见路径..."
+        fi
     fi
 fi
 

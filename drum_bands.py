@@ -108,7 +108,7 @@ def main() -> int:
                     help="歌曲 BPM(数字),或 auto(默认,librosa 估速)")
     ap.add_argument("--offset", type=non_negative_float, default=0.0,
                     help="开头跳过 N 秒再对 16-step 网格(默认 0)")
-    ap.add_argument("--threshold", type=float, default=None,
+    ap.add_argument("--threshold", type=non_negative_float, default=None,
                     help="RMS 阈值(不传 = 每 band 取 75 分位)")
     args = ap.parse_args()
 
